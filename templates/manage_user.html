@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for msg in messages %}
+    <br>
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        {{msg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+<div class="mx-auto" style="width: 50%;">
+</div>
+<form action="#" method="post">
+    <div class="form-group">
+        <label for="exampleInputPassword1">Add Privilege</label>
+        <input type="privilege" class="form-control" id="inputPrivilege" placeholder="Privilege" name="priv">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Privilege</button>
+</form>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Existing privileges for {{user}}</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in privs %}
+
+        <tr>
+          <td>
+            <a type="button" href="/removepriv/{{user}}/{{item}}" class="btn btn-danger">Remove</a>
+            {{item}}
+            
+          </td>
+          
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

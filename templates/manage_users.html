@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+            <br>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{msg}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <br>
+    <div class="mx-auto" style="width: 50%;">
+        <h3>Manage Users</h3>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="inputUsername">Username</label>
+                <select class="form-control" id="inputUsername" name="user">
+                    {% for user in users %}
+                        <option>{{user}}</option>
+                    {% endfor %}
+                  </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Manage User</button>
+        </form>
+    </div>
+{% endblock %}

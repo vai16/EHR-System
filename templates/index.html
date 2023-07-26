@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to EHR</title>
+    <style>
+        /* CSS for styling the page */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .registration-button {
+            display: inline-block;
+            padding: 12px 24px;
+    
+            background-color: #007bff;
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        .registration-button:hover {
+            background-color: blue;
+            color: white
+        }
+        .advantages-section {
+            background-color: #f5f5f5;
+            padding: 50px;
+        }
+
+.advantages-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.advantage {
+    width: calc(50% - 20px);
+    margin-bottom: 40px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.advantage h3 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.advantage p {
+    font-size: 20px;
+    line-height: 1.5;
+    
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to EHR</h1><br><br>
+        <div class="row">
+            <div class="col-6">
+                <h3>What is EHR?</h3><br>
+                <p>
+                    EHR or Electronic Health Records is a digital record of a patient's medical history, including diagnoses, medications, treatment plans, and more. EHRs make it easier for healthcare providers to share patient information securely and efficiently, improving patient outcomes and healthcare quality.
+                </p>
+                <a href="/register" class="registration-button">Register</a>
+                
+            </div>
+        </div><br> <br>
+        <div style="text-align: center;">
+            <h2>Why Use EHR?</h2>
+          </div>
+        <div class="advantages-section">
+            <div class="advantages-list">
+                <div class="advantage">
+                    <h3>Improved Patient Care and Outcomes</h3>
+                    <p>EHRs provide healthcare providers with quick and easy access to a patient's medical history, lab results, and other relevant information. This information allows healthcare providers to make better decisions about patient care, resulting in improved patient outcomes.</p>
+                </div>
+                <div class="advantage">
+                    <h3>Better Care Coordination</h3>
+                    <p>With EHRs, healthcare providers can easily share patient information with other healthcare providers involved in a patient's care. This leads to better care coordination and a more efficient healthcare system overall.</p>
+                </div>
+                <div class="advantage">
+                    <h3>More Accurate and Complete Patient Information</h3>
+                    <p>EHRs provide a comprehensive view of a patient's medical history, including medications, allergies, and previous diagnoses. This ensures that healthcare providers have accurate and complete information about a patient's health, leading to better decision-making and improved patient outcomes.</p>
+                </div>
+                <div class="advantage">
+                    <h3>Reduced Paperwork and Administrative Tasks</h3>
+                    <p>EHRs eliminate the need for paper records, reducing the amount of time healthcare providers spend on administrative tasks. This allows healthcare providers to focus on patient care, leading to improved patient outcomes and a more efficient healthcare system overall.</p>
+                </div>
+            </div>
+        </div>
+        
+        </div></body></html>
+
+
+{% endblock %}

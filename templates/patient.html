@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for msg in messages %}
+    <br>
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        {{msg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+<head>
+    <title>Patient Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center mb-4">Patient Profile</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Personal Information</h3>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Name:</th>
+                        <td>{{ patient.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date of Birth:</th>
+                        <td>{{ patient.dob }}</td>
+                    </tr>
+                    <tr>
+                        <th>Gender:</th>
+                        <td>{{ patient.gender }}</td>
+                    </tr>
+                    <tr>
+                        <th>Address:</th>
+                        <td>{{ patient.address }}</td>
+                    </tr>
+                    <tr>
+                        <th>Phone:</th>
+                        <td>{{ patient.phone }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <td>{{ patient.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Age:</th>
+                        <td>{{ patient.age }}</td>
+                    </tr>
+                    <tr>
+                        <th>Medical History:</th>
+                        <td>{{ patient.medicalhistory }}</td>
+                    </tr>
+                    <tr>
+                        <th>Current Symptoms:</th>
+                        <td>{{ patient.currentsymptoms }}</td>
+                    </tr>
+                    <tr>
+                        <th>Current Medicine:</th>
+                        <td>{{ patient.currentmedicines }}</td>
+                    </tr>
+                    <tr>
+                        <th>Doctor Name:</th>
+                        <td>{{ patient.doctorname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Doctor Prescription:</th>
+                        <td>{{ patient.doctorprescription }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h3>Medical Notes</h3>
+            {% for note in medical_notes %}
+                <p>{{ note.note }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="d-flex justify-content-between">
+        <a href="{{ url_for('patients_page') }}" class="btn btn-secondary">Back</a>
+        <!-- Button trigger modal -->
+           
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNoteModal">
+            Add Note
+        </button>
+    </div>
+</div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="addNoteModal" tabindex="-1" aria-labelledby="addNoteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form action="#" method="post">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addNoteModalLabel">Add Note for {{patient.name}}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <textarea class="form-control" id="note" name="note" rows="5" maxlength="1000"></textarea>
+              <div class="form-text" style="font-size: 0.8rem;">Max 1000 characters</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Note</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for msg in messages %}
+    <br>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{msg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+<br>
+    <div class="mx-auto" style="width: 50%;">
+        <h3>Create an account</h3>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="inputdoctorid">Doctor ID</label>
+                <input type="doctorid" class="form-control" id="inputdoctorid" name="inputdoctorid" aria-describedby="inputdoctorid" placeholder="Enter your id">
+            </div>
+            <div class="form-group">
+                <label for="inputdoctorpassword">Password</label>
+                <input type="password" class="form-control" id="inputdoctorpassword1" placeholder="Password" name="inputdoctorpassword1">
+                <div style="line-height:40%;">
+                    <br>
+                </div>                
+                <input type="password" class="form-control" id="inputdoctorpassword2" placeholder="Confirm Password" name="inputdoctorpassword2">
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+{% endblock %}
